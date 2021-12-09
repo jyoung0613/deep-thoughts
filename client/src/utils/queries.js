@@ -77,6 +77,23 @@ export const QUERY_THOUGHT = gql`
   }
 `;
 
+export const QUERY_REACTIONS = gql`
+query reactions($username: String) {
+  reactions(username: $username) {
+    _id
+    reactionBody
+    createdAt
+    username
+    thoughts {
+      _id
+      createdAt
+      username
+      thoughtText
+    }
+  }
+}
+`;
+
 export const QUERY_USER = gql`
   query user($username: String!) {
     user(username: $username) {
